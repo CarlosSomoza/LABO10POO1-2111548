@@ -23,27 +23,22 @@ public class Medico {
         return numeroColegiatura;
     }
 
-    // Setter para numeroColegiatura
     public void setNumeroColegiatura(int numeroColegiatura) {
         this.numeroColegiatura = numeroColegiatura;
     }
 
-    // Getter para nombre
     public String getNombre() {
         return nombre;
     }
 
-    // Setter para nombre
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    // Getter para especialidad
     public String getEspecialidad() {
         return especialidad;
     }
 
-    // Setter para especialidad
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
