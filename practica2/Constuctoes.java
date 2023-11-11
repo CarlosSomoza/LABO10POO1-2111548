@@ -1,6 +1,7 @@
 package practica2;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,6 +39,31 @@ public class Constuctoes {
             System.out.println("Posición inválida. No se pudo modificar los datos del paciente.");
         }
     }
+    
+    public void mostrarPesoMayorYMenor() {
+        if (listaPacientes.isEmpty()) {
+            System.out.println("No hay pacientes registrados.");
+            return;
+        }
+
+        double pesoMayor = listaPacientes.get(0).getPeso();
+        double pesoMenor = listaPacientes.get(0).getPeso();
+
+        for (Paciente paciente : listaPacientes) {
+            double pesoActual = paciente.getPeso();
+
+            if (pesoActual > pesoMayor) {
+                pesoMayor = pesoActual;
+            }
+
+            if (pesoActual < pesoMenor) {
+                pesoMenor = pesoActual;
+            }
+        }
+
+        System.out.println("El peso mayor es: " + pesoMayor);
+        System.out.println("El peso menor es: " + pesoMenor);
+    }
 
         public void mostrarPesoQueMasSeRepite() {
         Map<Double, Integer> frecuenciaPesos = new HashMap<>();
@@ -62,6 +88,17 @@ public class Constuctoes {
         System.out.println("El peso que más se repite es: " + pesoMasRepetido);
     }
 
+    public void mostrarCantidadPorPeso(double pesoBuscar) {
+        int cantidadPacientesConPeso = 0;
+
+        for (Paciente paciente : listaPacientes) {
+            if (paciente.getPeso() == pesoBuscar) {
+                cantidadPacientesConPeso++;
+            }
+        }
+        System.out.println("La cantidad de pacientes con peso " + pesoBuscar + " es: " + cantidadPacientesConPeso);
+    }
+    
     public void indicarDoctorDePaciente(int posicion) {
         if (posicion >= 0 && posicion < listaPacientes.size()) {
             Paciente paciente = listaPacientes.get(posicion);
@@ -69,6 +106,26 @@ public class Constuctoes {
             System.out.println("El paciente fue atendido por el doctor: " + medico.getNombre());
         } else {
             System.out.println("Posición inválida.");
+        }
+    }
+    
+    public void mostrarListaOrdenadaPorApellidos() {
+        if (listaPacientes.isEmpty()) {
+            System.out.println("No hay pacientes registrados.");
+            return;
+        }
+
+        listaPacientes.sort(Comparator.comparing(Paciente::getApellido));
+
+        System.out.println("----- Lista de Pacientes Ordenados por Apellidos -----");
+        for (Paciente paciente : listaPacientes) {
+            System.out.println("DNI: " + paciente.getDNI());
+            System.out.println("Nombre: " + paciente.getNombre());
+            System.out.println("Apellido: " + paciente.getApellido());
+            System.out.println("Dirección: " + paciente.getDireccion());
+            System.out.println("Peso: " + paciente.getPeso());
+            System.out.println("Temperatura: " + paciente.getTemperatura());
+            System.out.println("------------------------");
         }
     }
 
@@ -82,6 +139,7 @@ public class Constuctoes {
         }
     }
     
+    //Easter egg
     public void mostrarListaPacientes() {
     System.out.println("----- Lista de Pacientes -----");
     for (int i = 0; i < listaPacientes.size(); i++) {
