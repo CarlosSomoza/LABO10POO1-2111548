@@ -43,17 +43,18 @@ public class Practica2 {
                     int dni = scanner.nextInt();
                     System.out.print("Nombre: ");
                     String nombre = scanner.next();
-                    System.out.print("Dirección: ");
+                    System.out.print("Direccion: ");
                     String direccion = scanner.next();
                     System.out.print("Peso: ");
                     double peso = scanner.nextDouble();
                     System.out.print("Temperatura: ");
                     double temperatura = scanner.nextDouble();
                    
-                    System.out.println("Ingrese los datos del médico:");
-                    System.out.print("Número de colegiatura: ");
+                    //En este caso supongamos que ya tenemos al medico solo hay que ponerlo aca
+                    System.out.println("Ingrese los datos del medico:");
+                    System.out.print("Numero de colegiatura: ");
                     int numeroColegiatura = scanner.nextInt();
-                    System.out.print("Nombre del médico: ");
+                    System.out.print("Nombre del medico: ");
                     String nombreMedico = scanner.next();
                     System.out.print("Especialidad: ");
                     String especialidadMedico = scanner.next();
@@ -72,26 +73,23 @@ public class Practica2 {
                     break;
                     
                 case 3:
-                    System.out.print("Ingrese la posición del paciente a modificar: ");
+                    System.out.print("Ingrese la posicion del paciente a modificar: ");
                     int posicionModificar = scanner.nextInt();
 
-                    // Obtener el paciente actual
                     Paciente pacienteActual = sistema.listaPacientes.get(posicionModificar);
 
-                    // Solicitar nuevos datos del paciente
                     System.out.println("Ingrese los nuevos datos del paciente:");
                     System.out.print("DNI: ");
                     dni = scanner.nextInt();
                     System.out.print("Nombre: ");
                     nombre = scanner.next();
-                    System.out.print("Dirección: ");
+                    System.out.print("Direccion: ");
                     direccion = scanner.next();
                     System.out.print("Peso: ");
                     peso = scanner.nextDouble();
                     System.out.print("Temperatura: ");
                     temperatura = scanner.nextDouble();
 
-                    // Modificar el paciente con los nuevos datos
                     Medico medicoActual = pacienteActual.getMedico();
                     Paciente pacienteModificado = new Paciente(dni, nombre, direccion, peso, temperatura, medicoActual);
                     sistema.modificarDatosPaciente(posicionModificar, pacienteModificado);
@@ -103,8 +101,22 @@ public class Practica2 {
                     sistema.mostrarPesoQueMasSeRepite();
                     break;
                     
+                case 5:
+                    System.out.print("Ingrese el peso para mostrar la cantidad de pacientes: ");
+                    double pesoBuscar = scanner.nextDouble();
+                    sistema.mostrarCantidadPorPeso(pesoBuscar);
+                    break;
+                    
+                case 6:
+                    sistema.mostrarPesoMayorYMenor();
+                    break;
+                    
+                case 8:
+                    sistema.mostrarListaOrdenadaPorApellidos();
+                    break;
+                    
                 case 9:
-                    System.out.print("Ingrese la posición del paciente para indicar qué doctor lo atendió: ");
+                    System.out.print("Ingrese la posicion del paciente para indicar que doctor lo atendio: ");
                     int posicionIndicarDoctor = scanner.nextInt();
                     sistema.indicarDoctorDePaciente(posicionIndicarDoctor);
                     break;
@@ -113,12 +125,12 @@ public class Practica2 {
                     System.out.println("Saliendo del programa. ¡Hasta luego!");
                     break;
                     
-                case 11:
+                case 11: //Easter Egg
                     sistema.mostrarListaPacientes();
                     break;
 
                 default:
-                    System.out.println("Opción no valida. Por favor, ingrese una opción valida.");
+                    System.out.println("Opcion no valida. Por favor, ingrese una opcion valida.");
             }
         } while (opcion != 0);
 
