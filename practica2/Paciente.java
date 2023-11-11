@@ -25,63 +25,55 @@ public class Paciente {
         this.medico = medico;
     }
     
-        // Getter para DNI
     public int getDNI() {
         return DNI;
     }
 
-    // Setter para DNI
     public void setDNI(int DNI) {
         this.DNI = DNI;
     }
 
-    // Getter para nombre
     public String getNombre() {
         return nombre;
     }
 
-    // Setter para nombre
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    // Getter para direccion
     public String getDireccion() {
         return direccion;
     }
 
-    // Setter para direccion
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
 
-    // Getter para peso
     public double getPeso() {
         return peso;
     }
 
-    // Setter para peso
     public void setPeso(double peso) {
         this.peso = peso;
     }
 
-    // Getter para temperatura
     public double getTemperatura() {
         return temperatura;
     }
 
-    // Setter para temperatura
     public void setTemperatura(double temperatura) {
         this.temperatura = temperatura;
     }
 
-    // Getter para medico
     public Medico getMedico() {
         return medico;
     }
 
-    // Setter para medico
-    public void setMedico(Medico medico) {
+        public void setMedico(Medico medico) {
         this.medico = medico;
+    }
+
+    String getApellido() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
